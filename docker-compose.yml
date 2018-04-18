@@ -1,0 +1,18 @@
+version: '2.0'
+
+services:
+   wordpress:
+     image: waltercoan:wordpress
+     ports:
+       - "8000:80"
+     networks:
+      - dacs2018
+     restart: always
+     environment:
+       WORDPRESS_DB_HOST: 172.23.0.2:3306
+       WORDPRESS_DB_USER: wordpress
+       WORDPRESS_DB_PASSWORD: wordpress
+networks:
+  dacs2018:
+    external:
+       name: dacs2018
